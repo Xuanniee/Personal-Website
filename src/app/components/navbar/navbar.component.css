@@ -1,0 +1,57 @@
+* {
+    /** Ensures that the box includes the padding and border as part of the element*/
+    box-sizing: border-box;
+}
+
+.navbar {
+    /** Space the links efficiently */
+    justify-content: space-between;
+
+    /** Ensure the 3 Sections of Logo, Links, and Actions are horizontal */
+    display: flex;
+    flex-direction: row;
+
+    /** Set the Padding Color to Black, while Text is White */
+    background-color: #ADC4CE;
+    color: black;
+
+    /** Ensure the navbar stays while scrolling */
+    position: sticky;
+}
+
+.navbar-logo {
+    /** Spaced out a little, so it doesnt touch the end */
+    margin-left: 10px;
+}
+
+.navbar-link-container {
+    /** Ensure the Navlinks are stacked horizontally */
+    display: flex;
+    flex-direction: row;
+
+    /** Make the Items align vertically */
+    align-items: center;
+}
+
+.navbar-link {
+    /** For each navlink to appear as a button */
+    padding: 5px 10px; /** xy dirn, then left right */
+    margin: 0px 10px;
+    border: 2px solid #96B6C5;
+    border-radius: 10%; /** Set border to be rounded */
+
+    list-style-type: none;
+
+    background-color: #EEE0C9;
+}
+
+/* Remove default button styling */
+.no-style-button {
+    background: #EEE0C9;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}

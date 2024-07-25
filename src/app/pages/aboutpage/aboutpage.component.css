@@ -1,0 +1,62 @@
+.aboutPage {
+    /** Setting the bg and text colors, along with font types */
+    color: black;
+    background-color: #9CA6B8;
+
+}
+
+.about-div {
+    /** Have the 2 Spacers and Content Div stack horizontally */
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.about-content {
+    font-family: serif, Tahoma;
+    font-size: larger;
+    flex: 1;
+}
+
+.about-header {
+    /** Setting up a border line after the headers */
+    border-bottom: 1px solid #163B50;
+    margin-bottom: 5px;
+
+    font-family: serif, Tahoma;
+    font-weight: 300;
+}
+
+.spacer-div {
+    /** Div Containers that take up space so that my content will be centered */
+    flex: 1;
+}
+
+/** For Icons **/
+.icons-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon-container {
+    flex: 1 1 20%; /* Allows each icon container to take up 20% of the row's width */
+    max-width: 20%; /* Ensures no more than 5 items per row */
+    margin-bottom: 20px;
+
+    /** For img and span tags to be stacked vertically */
+    display: flex;
+    flex-direction: column;
+
+    /** For the text */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    text-align: center;
+}
+
+.icon-image {
+    /** To center the icon image horizontally. Block will make the image take the full width then we allocate margins auto on x-axis */
+    display: block;
+    margin: 5px auto;
+}
