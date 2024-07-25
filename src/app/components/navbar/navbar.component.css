@@ -17,6 +17,8 @@
 
     /** Ensure the navbar stays while scrolling */
     position: sticky;
+    /** Tells the navbar where to stick from */
+    top: 0;
 }
 
 .navbar-logo {
@@ -41,8 +43,23 @@
     border-radius: 10%; /** Set border to be rounded */
 
     list-style-type: none;
-
     background-color: #EEE0C9;
+}
+
+.navbar-link a {
+    /** Targets the <a> tag within the li tag of navbar-link */
+    text-decoration: none; /** Remove the underlining of links */
+    color: inherit; /** Text color follow parents */
+}
+
+.navbar-link:hover {
+    /** Button to become darker while hovering. Must change color according to what the navbar-link color is */
+    background-color: #D3C0A7;
+}
+
+.navbar-link.active {
+    /** Assigned to button that is currently clicked, i.e. which button we are on */
+    background-color: #D3C0A7; /** Changed to hover color permanently */
 }
 
 /* Remove default button styling */
