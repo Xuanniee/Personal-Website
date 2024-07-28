@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-projectcard',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './projectcard.component.html',
   styleUrl: './projectcard.component.css'
 })
-export class ProjectcardComponent {
+export class ProjectcardComponent implements OnInit{
+    // Property to hold the desired data
 
 }
