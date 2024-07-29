@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { GithubService } from 'src/app/services/github.service';
 import { CommonModule } from '@angular/common';
 
+=======
+>>>>>>> 84a00b2a55fb0933e8f35a71c483b6c0aeefa588
 
 @Component({
   selector: 'app-projectcard',
