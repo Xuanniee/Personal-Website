@@ -1,0 +1,109 @@
+/* Container to store the entire card */
+.project-card {
+    /* Ensure that there will at most be 2 cards fitting nicely in the grid */
+    flex: 1 1 auto;
+
+    /* To ensure the details of the card stay at the bottom always  */
+    position: relative;
+    padding: 0 0 50px; /* Increase the bottom padding to ensure space for the .project-card-details */
+    margin: 10px;
+    max-width: 30em;
+
+    /* Design of Card */
+    border: 2px solid #333333;
+    border-radius: 2%;
+    background-color: white;
+    color: #333333;
+
+    /* Ensure padding and border are included in the width/height */
+    box-sizing: border-box;
+}
+
+.project-card .a {
+    /* Set the link colors for links in card */
+    color: #0366d6
+}
+
+.project-card-content {
+    padding: 5px;
+}
+
+/* Remember to position at the bottom */
+.project-card-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    /* Take up the entire width of the parent container */
+    width: 100%;
+    
+    /* Ensure the 2 divs are at the ends */
+    justify-content: space-between;
+
+    /* Ensure the 2 children divs are in the same row */
+    display: flex;
+    flex-direction: row;
+}
+
+.project-card-stats {
+    display: flex;
+    flex-direction: row;
+
+    /* Align items vertically */
+    align-items: center;
+
+    justify-content: space-evenly;
+
+    /* vertical; horizontal */
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Same as project-card just on the right */
+.project-card-actions {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-evenly;
+
+    /* vertical; horizontal */
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Custom Styling for the Action Buttons */
+.link-button {
+    /* Creating space so the button looks nice */
+    margin: 10px;
+    padding: 5px;
+
+    /* Setting the colors for the Github Card */
+    background-color: #555555;
+    color: white;
+    /* Create a rounded button */
+    border: 2px solid #222222;
+    border-radius: 20%;
+
+    /* Setting min and max width so that the buttons are of a certain size */
+    min-width: 50px;
+    max-width: 90px;
+    width: 100%;
+    height: auto;
+
+    text-decoration: none;
+    font-size: small;
+}
+
+.link-button:hover {
+    background-color: #333333;
+}
+
+/* To display a colored circle for the programming language used */
+.language-dot {
+    width: 10px;          /* Adjust size as needed */
+    height: 10px;         /* Adjust size as needed */
+    border-radius: 50%;  /* Makes it a circle */
+    display: inline-block;
+    margin-right: 5px;   /* Spacing between circle and text */
+}

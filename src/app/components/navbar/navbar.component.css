@@ -19,6 +19,8 @@
     position: sticky;
     /** Tells the navbar where to stick from */
     top: 0;
+    /* Ensure navbar is always the first element on top */
+    z-index: 9999999;
 }
 
 .navbar-logo {

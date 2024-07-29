@@ -1,0 +1,40 @@
+.projectPage {
+    /** Setting the bg and text colors, along with font types */
+    color: black;
+    background-color: #F1F0E8;
+}
+
+.project-div {
+    /* Display the Project in Columns of 2 */
+    display: flex;
+    flex-direction: column;
+
+    /* Center horizontally */
+    width: 100%;
+    justify-content: center;
+
+    /* Creating Space and centering the cards */
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.project-div h1 {
+    /* Child Header of Project Div */
+    width: 100%;
+    margin: 15px 0;
+
+    /* Align the project horizontally cos the main axis is y as it is a col right now */
+    align-items: center;
+}
+
+.project-grid {
+    /* Space between cards and space them evenly */
+    gap: 10px;
+    justify-content: space-evenly;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust minmax value to fit cards */
+    max-width: 80%;
+    margin: 0 auto; /* Center the container */
+
+}
