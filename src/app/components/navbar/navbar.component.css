@@ -12,8 +12,8 @@
     flex-direction: row;
 
     /** Set the Padding Color to Black, while Text is White */
-    background-color: #ADC4CE;
-    color: black;
+    background-color: #3D3D3D;
+    color: #DDDDDD;
 
     /** Ensure the navbar stays while scrolling */
     position: sticky;
@@ -41,11 +41,11 @@
     /** For each navlink to appear as a button */
     padding: 5px 10px; /** xy dirn, then left right */
     margin: 0px 10px;
-    border: 2px solid #96B6C5;
+    border: 2px solid #1A1919;
     border-radius: 10%; /** Set border to be rounded */
 
     list-style-type: none;
-    background-color: #EEE0C9;
+    background-color: #5F5F5F;
 }
 
 .navbar-link a {
@@ -56,17 +56,17 @@
 
 .navbar-link:hover {
     /** Button to become darker while hovering. Must change color according to what the navbar-link color is */
-    background-color: #D3C0A7;
+    background-color: #1F1F1F;
 }
 
 .navbar-link.active {
     /** Assigned to button that is currently clicked, i.e. which button we are on */
-    background-color: #D3C0A7; /** Changed to hover color permanently */
+    background-color: #1F1F1F; /** Changed to hover color permanently */
 }
 
 /* Remove default button styling */
 .no-style-button {
-    background: #EEE0C9;
+    background: #5F5F5F;
     border: none;
     color: inherit;
     font: inherit;

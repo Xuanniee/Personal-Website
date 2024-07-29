@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Features
+1. List Github Repos for all projects
+2. Caching to local storage is done
+3. Want to implement caching to database so as to prevent Github API limits from being reached

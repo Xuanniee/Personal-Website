@@ -1,8 +1,31 @@
 .home-content-div {
     display: flex;
     flex-direction: row;
+    
+    /* Prevent touching navbar */
+    margin: 10px;
 }
 
 .spacer {
     flex: 1;
+}
+
+.self-introduction {
+    /* Put side by side */
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between; /* Space between the items if you want extra space between them */
+}
+
+.self-introduction > div {
+    flex: 1; /* Make each child take up equal space */
+    padding: 10px; /* Optional: add padding for spacing */
+}
+
+.self-introduction-content {
+    font-family: serif, Tahoma;
+    font-size: large;
+    padding: 3px;
+    max-width: 25%;
 }

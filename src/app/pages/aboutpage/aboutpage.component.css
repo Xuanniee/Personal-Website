@@ -1,8 +1,7 @@
 .aboutPage {
     /** Setting the bg and text colors, along with font types */
-    color: black;
-    background-color: #F1F0E8;
-
+    color: #333333;
+    background-color: #DDDDDD;
 }
 
 .about-div {
@@ -21,7 +20,7 @@
 
 .about-header {
     /** Setting up a border line after the headers */
-    border-bottom: 1px solid #163B50;
+    border-bottom: 1px solid #1A1919;
     margin-bottom: 5px;
 
     font-family: serif, Tahoma;

@@ -5,24 +5,12 @@
         <h1>Projects</h1>
         
         <div class="project-grid">
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
-            <app-projectcard></app-projectcard>
+            <app-projectcard
+                *ngFor="let repo of repoListData"
+                [repoData]=repo
+                [githubColors]=githubColors
+            >
+            </app-projectcard>
         </div>
     </div>
 </div>

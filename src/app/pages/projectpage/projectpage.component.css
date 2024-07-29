@@ -1,7 +1,7 @@
 .projectPage {
     /** Setting the bg and text colors, along with font types */
-    color: black;
-    background-color: #F1F0E8;
+    color: #333333;
+    background-color: #DDDDDD;
 }
 
 .project-div {
@@ -24,6 +24,7 @@
     margin: 15px 0;
 
     /* Align the project horizontally cos the main axis is y as it is a col right now */
+    justify-content: center;
     align-items: center;
 }
 
@@ -33,8 +34,8 @@
     justify-content: space-evenly;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Adjust minmax value to fit cards */
+    /* creates exactly 2 columns, each taking up an equal fraction (1fr) of the available space.  */
+    grid-template-columns: repeat(2, 1fr);
     max-width: 80%;
     margin: 0 auto; /* Center the container */
-
 }

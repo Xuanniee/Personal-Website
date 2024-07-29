@@ -7,8 +7,12 @@ html, body {
     /** To ensure the entire view port is taken **/
     width: 100%;
     height: 100%;
-
-    background-color: #F1F0E8;
+    /* base: #DDDDDD,
+    primary: #3D3D3D,
+    accent: #1A1919
+    word: #333333 */
+    background-color: #DDDDDD;
+    color: #333333
 }
 
 /* Ensure all elements use border-box sizing */
