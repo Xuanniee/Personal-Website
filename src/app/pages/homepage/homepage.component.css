@@ -15,17 +15,31 @@
     display: flex;
     flex-direction: row;
 
-    justify-content: space-between; /* Space between the items if you want extra space between them */
+    justify-content: center; /* Space between the items if you want extra space between them */
 }
 
 .self-introduction > div {
-    flex: 1; /* Make each child take up equal space */
     padding: 10px; /* Optional: add padding for spacing */
 }
 
 .self-introduction-content {
+    display: flex;              /* Make the container a flex container */
+    flex-direction: column;     /* Align children vertically */
+    justify-content: center;    /* Center children vertically */
     font-family: serif, Tahoma;
     font-size: large;
     padding: 3px;
     max-width: 25%;
+    height: 100%;                /* Ensure the container takes full height if needed */
+}
+
+
+/* Container for the entire content of the middle section */
+.middle-div {
+    display: flex;
+    flex-direction: column;
+    /* Align Horizontally */
+    align-items: center;
+
+    padding: 10px;
 }
