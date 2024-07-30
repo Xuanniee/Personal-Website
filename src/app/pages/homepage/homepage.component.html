@@ -12,35 +12,100 @@
         
                     <p>On my site, you can check out my personal projects, my internship experiences, or learn more about me!</p>
                 </div>
-    
-                <div>
-                    <a href="https://leetcode.com/Xuanniee" target="_blank" rel="noopener noreferrer">
-                        <img src="https://leetcard.jacoblin.cool/Xuanniee?ext=activity" alt="Leetcode Stats">
-                    </a>
+
+                <img src="/assets/pan-pan-profile.png" alt="Picture of Pan Pan" />
+            </div>
+
+            <div class="middle-section">
+                <h3>Professional Experiences</h3>
+                <div class="experience-div">
+                    <h4>Software Engineer Intern</h4>
+                    <div class="experience-header-div">
+                        <span class="experience-company">Continental Automotives Singapore Pte Ltd</span>
+                        <span class="experience-date">July 2024 - Present</span>
+                    </div>
+                    <div class="experience-body-div">
+                        <ul>
+                            <li>
+                                Created a Bash script to automatically deploy Docker containers for a Django web application focused on fuzzing techniques, reducing confusion and saving 5 hours each month when computers are booted up.
+                            </li>
+                            <li>
+                                Responsible for developing and maintaining a custom Power BI visual for the Continental German team, utilising the Visual API, TypeScript, and JavaScript.
+                            </li>
+                            <li>
+                                Developing a wrapper for the Fuzzing Algorithm so that users can apply it to the CI/CD pipeline in Continental.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-div">
+                    <h4>Data Analyst Intern</h4>
+                    <div class="experience-header-div">
+                        <span class="experience-company">EV-Electric (EVe) Pte Ltd</span>
+                        <span class="experience-date">May 2023 - July 2023</span>
+                    </div>
+                    <div class="experience-body-div">
+                        <ul>
+                            <li>
+                                Developed a web scraping script to extract EV Charger locations and associated EV Operators in Singapore for geo-spatial analysis, facilitating strategic installation of additional or fast EV chargers.
+                            </li>
+                            <li>
+                                Automated data report generation by centralising datasets, resulting in a monthly time savings of 10 manpower hours previously spent on compilation.
+                            </li>
+                            <li>
+                                Analysed and visualised EV owners' charging behaviour, identifying over-subscribed carparks and recommending areas for additional charger deployment.
+                            </li>
+                            <li>
+                                Created scripts to scrape and monitor daily petrol and EV charging prices in Singapore, aiding in market price analysis.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <a href="https://github.com/Xuanniee/github-readme-stats">
-                    <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=Xuanniee" />
-                </a>
-                <a href="https://github.com/Xuanniee/convoychat">
-                    <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=Xuanniee&layout=compact&langs_count=8&card_width=320" />
-                </a>
+            <div class="middle-section">
+                <h3>Notable Projects</h3>
+                <div class="homepage-projects">
+                    <app-projectcard
+                        *ngFor="let repo of repoData"
+                        [repoData]=repo
+                        [githubColors]=githubColors
+                    >
+                    </app-projectcard>
+                </div>
             </div>
 
-            <div class="professional-experiences">
-                <h3>Professional Experiences:</h3>
+            <div class="middle-section">
+                <h3>Statistics</h3>
 
+                
+                <div class="plugin-container">
+                    <div class="plugin-logo">
+                        <span>Leetcode</span>
+                        <img src="assets/leetcode-logo.png" alt="Leetcode Logo" width="100px" height="100px">
+                    </div>
+                    
 
+                    <a href="https://leetcode.com/Xuanniee" target="_blank" rel="noopener noreferrer">
+                        <img src="https://leetcard.jacoblin.cool/Xuanniee" alt="Leetcode Stats">
+                    </a>
+                </div>
+    
+                <div class="plugin-container">
+                    <div class="plugin-logo">
+                        <span>Github</span>
+                        <img src="assets/github-logo.png" alt="Github Logo" width="100px" height="100px">
+                    </div>
+                    
 
+                    <a href="https://github.com/Xuanniee/github-readme-stats">
+                        <img height=200 width=auto align="center" src="https://github-readme-stats.vercel.app/api?username=Xuanniee" />
+                    </a>
+                </div>
             </div>
             
         </div>
-        
-
-        
-
 
         <div class="spacer"></div>
     </div>

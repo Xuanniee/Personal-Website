@@ -74,3 +74,13 @@
     padding: 0;
     text-align: left;
 }
+
+.no-style-button:hover {
+    /** Button to become darker while hovering. Must change color according to what the navbar-link color is */
+    background-color: #1F1F1F;
+}
+
+.no-style-button.active {
+    /** Assigned to button that is currently clicked, i.e. which button we are on */
+    background-color: #1F1F1F; /** Changed to hover color permanently */
+}

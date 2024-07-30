@@ -29,7 +29,10 @@
     font-family: serif, Tahoma;
     font-size: large;
     padding: 3px;
-    max-width: 25%;
+
+    /* Take up all avail width */
+    width: 100%;        
+    max-width: 30%;
     height: 100%;                /* Ensure the container takes full height if needed */
 }
 
@@ -42,4 +45,101 @@
     align-items: center;
 
     padding: 10px;
+}
+
+/* Container for all middle section containers */
+.middle-section {
+    width: 100%;
+    max-width: 70%;
+
+    /* Center the div */
+    justify-content: center;
+}
+
+/* Project Card in Homepage */
+.homepage-projects {
+    /* Space between cards and space them evenly */
+    gap: 5px;
+    justify-content: space-evenly;
+
+    display: grid;
+    /* creates exactly 2 columns, each taking up an equal fraction (1fr) of the available space.  */
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 80%;
+    margin: 0 auto; /* Center the container */
+}
+
+.middle-section h3{
+    font-size: larger;
+    font-weight: 700;
+
+    border-bottom: 2px solid #1A1919;
+    margin-bottom: 10px;
+}
+
+.middle-section h4{
+    font-size: large;
+    font-weight: 300;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+/* Container for Company & Date */
+.experience-header-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* Common styling for date and company buttons */
+.experience-company, .experience-date {
+    /* Aesthetics */
+    font-size: medium;
+    font-weight: 600;
+    border: 3px solid black;
+    border-radius: 10px;
+
+    /* Separate from the each other company and date */
+    margin: 5px 10px;
+    padding: 3px 6px;
+}
+
+.experience-date {
+    background-color: #4A4949;
+    color: #DDDDDD;
+    /* base: #DDDDDD,
+    primary: #3D3D3D,
+    accent: #1A1919
+    word: #333333 */
+}
+
+.experience-company {
+    background-color: cadetblue;
+}
+
+/* Third Party Plugins */
+.plugin-container {
+    display: flex;
+    flex-direction: row;
+
+    /* Center */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px 0;
+}
+
+/* Title for Plugins */
+.plugin-logo {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 100px;
 }
