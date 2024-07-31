@@ -2,6 +2,21 @@
     /** Setting the bg and text colors, along with font types */
     color: #333333;
     background-color: #DDDDDD;
+    font-family: Palatino, serif;
+}
+
+.middle-div {
+    display: flex;
+    flex-direction: column;
+
+    /* Align Horizontally */
+    align-items: center;
+
+    padding: 10px;
+}
+
+.spacer {
+    flex: 1;
 }
 
 .project-div {
@@ -19,9 +34,10 @@
 }
 
 .project-div h1 {
+    border-bottom: 2px solid #1A1919;
     /* Child Header of Project Div */
-    width: 100%;
     margin: 15px 0;
+    width: 70%;
 
     /* Align the project horizontally cos the main axis is y as it is a col right now */
     justify-content: center;

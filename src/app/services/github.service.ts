@@ -11,12 +11,45 @@ export class GithubService {
     private readonly githubBaseUrl = "https://api.github.com";
     private readonly colorsUrl = 'https://raw.githubusercontent.com/ozh/github-colors/master/colors.json';
     // unique identifying for storing and retrieving data
-    private readonly cacheKey = "githubrepocachekey";
+    private readonly cacheKey = "githubRepoCache";
+    // Setting a duration so that the cached data will be updated
+    private readonly cacheDuration = 30 * 60 * 1000; // 30mins
 
     constructor(private http: HttpClient) {}
 
+    // Check if a browser exists before we attempt to use localStorage
     private isBrowser(): boolean {
         return typeof window !== 'undefined';
+    }
+
+    // Function that retrieves cached data based on a time limit
+    private getCachedData(key: string): any {
+        if (this.isBrowser()) {
+            // Retrieve the cached data
+            const cached = localStorage.getItem(key);
+
+            if (cached) {
+                const { data, timestamp } = JSON.parse(cached);
+                
+                // Determine how much time has passed since the data has been cached
+                const age = new Date().getTime() - timestamp;
+                if (age < this.cacheDuration) {
+                    return JSON.parse(data);
+                }
+            }
+        }
+        return null;
+    }
+
+    // Function that caches data and the current time
+    private cacheData(key: string, data: any): void {
+        if (this.isBrowser()) {
+            const currTimestamp = new Date().getTime();
+
+            // Cache the data and current time
+            localStorage.setItem(key, JSON.stringify({ data, currTimestamp }));
+        }
+
     }
     
     /**
@@ -31,14 +64,12 @@ export class GithubService {
     getGithubRepoData(username: string, repoName: string): Observable<any> {
         // Modify Base URL
         const githubApiUrl = `${this.githubBaseUrl}/repos/${username}/${repoName}`;
-    
-        if (this.isBrowser()) {
-            // Check if this data is available locally
-            const cachedData = localStorage.getItem(`${this.cacheKey}-${username}-${repoName}`);
-            if (cachedData) {
-                // Return the Cached Data to reduce API Calls
-                return of(JSON.parse(cachedData));
-            }
+        const cacheKey = `${this.cacheKey}-${username}-${repoName}`;
+
+        // See if we have valid cache within 30 mins
+        const cachedData = this.getCachedData(cacheKey);
+        if (cachedData) {
+            return of(cachedData);
         }
     
         // Make the API call
@@ -46,9 +77,9 @@ export class GithubService {
             map(data => {
                 // Cache the response data
                 if (this.isBrowser()) {
-                    localStorage.setItem(`${this.cacheKey}-${username}-${repoName}`, JSON.stringify(data));
+                    this.cacheData(cacheKey, data);
+                    return data;
                 }
-                return data;
             }),
             catchError(error => {
                 // Handle errors here
@@ -74,16 +105,24 @@ export class GithubService {
      * @param username a string of the user's Github username
      */
     getPublicRepoList(username: string): Observable<any[]> {
-        if (this.isBrowser()) {
-            // Check if this data is available locally
-            const cachedData = localStorage.getItem(this.cacheKey);
-            if (cachedData) {
-                // Return the Cached Data to reduce API Calls
-                // of is an operator used to create an Observable that emits the values provided to it
-                // parse is required to convert a JSON string back to a JSON object after retrieving from storage
-                return of(JSON.parse(cachedData));
-            }
+        const cacheKey = this.cacheKey;
+
+        // Use the function to see if we have a valid cache, hasnt expired
+        const cachedData = this.getCachedData(cacheKey);
+        if (cachedData) {
+            return of(cachedData);
         }
+
+        // if (this.isBrowser()) {
+        //     // Check if this data is available locally
+        //     const cachedData = localStorage.getItem(this.cacheKey);
+        //     if (cachedData) {
+        //         // Return the Cached Data to reduce API Calls
+        //         // of is an operator used to create an Observable that emits the values provided to it
+        //         // parse is required to convert a JSON string back to a JSON object after retrieving from storage
+        //         return of(JSON.parse(cachedData));
+        //     }
+        // }
 
         // Set up the URL & Make the API Call
         const githubApiUrl = `${this.githubBaseUrl}/users/${username}/repos`;
@@ -94,10 +133,7 @@ export class GithubService {
                 // Filter the repos to accept only those with a description
                 const filteredRepos = repos.filter(repo => repo.description !== null);
                 // Cache the response using the key and converting it to a string for storage
-                if (this.isBrowser()) {
-                    // Cache the response data
-                    localStorage.setItem(this.cacheKey, JSON.stringify(filteredRepos));
-                  }
+                this.cacheData(cacheKey, filteredRepos);
                 return filteredRepos;
             }),
             catchError(error => {

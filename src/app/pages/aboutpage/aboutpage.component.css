@@ -2,18 +2,19 @@
     /** Setting the bg and text colors, along with font types */
     color: #333333;
     background-color: #DDDDDD;
+    font-family: Palatino, serif;
 }
 
 .about-div {
     /** Have the 2 Spacers and Content Div stack horizontally */
     display: flex;
     flex-direction: row;
+    font-family: Palatino, serif;
 
     justify-content: center;
 }
 
 .about-content {
-    font-family: serif, Tahoma;
     font-size: larger;
     flex: 1;
 }
@@ -23,7 +24,6 @@
     border-bottom: 1px solid #1A1919;
     margin-bottom: 5px;
 
-    font-family: serif, Tahoma;
     font-weight: 300;
 }
 
@@ -49,7 +49,6 @@
     flex-direction: column;
 
     /** For the text */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 200;
     text-align: center;
 }

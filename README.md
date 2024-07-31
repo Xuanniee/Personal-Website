@@ -31,3 +31,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. List Github Repos for all projects
 2. Caching to local storage is done
 3. Want to implement caching to database so as to prevent Github API limits from being reached
+4. Angular Build Process creates a browser and server folder in the dist. Remember to set client as the browser folder and turn off prerender and ssr to False so that index.html can be generated.

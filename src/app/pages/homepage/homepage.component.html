@@ -65,7 +65,11 @@
             </div>
 
             <div class="middle-section">
-                <h3>Notable Projects</h3>
+                <div class="middle-section-menu">
+                    <h3>Notable Projects</h3>
+                    <a class="homepage-button" routerLink="/projects">All Projects</a>
+                </div>
+                
                 <div class="homepage-projects">
                     <app-projectcard
                         *ngFor="let repo of repoData"

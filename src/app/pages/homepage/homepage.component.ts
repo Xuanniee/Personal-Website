@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
 import { NavbarComponent } from '../../components/navbar/navbar.component';
@@ -9,7 +10,7 @@ import { GithubService } from 'src/app/services/github.service';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [NavbarComponent, ProjectcardComponent, CommonModule],
+  imports: [NavbarComponent, ProjectcardComponent, CommonModule, RouterLink],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
@@ -25,7 +26,7 @@ export class HomepageComponent implements OnInit{
         this.githubService.getGithubColors().subscribe(
             colors => {
                 this.githubColors = colors;
-                this.fetchPinnedRepos(["Bus-Express", "Finance", "Network-Django"]); // Update with your repo names
+                this.fetchPinnedRepos(["Bus-Express", "Finance", "Network-Django", "PandaPlay"]); // Update with your repo names
             },
             error => console.error('Error fetching colors:', error)
         );
