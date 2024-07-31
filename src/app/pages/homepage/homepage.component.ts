@@ -38,6 +38,7 @@ export class HomepageComponent implements OnInit{
 
         forkJoin(repoRequests).subscribe(
             (responses) => {
+                console.log('API Responses:', responses); // Log the raw responses
                 this.repoData = responses;
                 console.log(this.repoData);
             },

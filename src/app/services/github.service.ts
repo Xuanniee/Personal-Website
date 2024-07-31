@@ -25,26 +25,33 @@ export class GithubService {
     * @returns Observable with repository data
     */
     getGithubRepoData(username: string, repoName: string): Observable<any> {
-        // Check if this data is available locally
-        const cachedData = localStorage.getItem(this.cacheKey);
-        if (cachedData) {
-            // Return the Cached Data to reduce API Calls
-            // of is an operator used to create an Observable that emits the values provided to it
-            // parse is required to convert a JSON string back to a JSON object after retrieving from storage
-            return of(JSON.parse(cachedData));
-        }
-
         // Modify Base URL
         const githubApiUrl = `${this.githubBaseUrl}/repos/${username}/${repoName}`;
-        const result =  this.http.get<any>(githubApiUrl);
-        // Cache the response using the key and converting it to a string for storage
-        if (typeof window !== 'undefined') {
-            // Cache the response data
-            localStorage.setItem(this.cacheKey, JSON.stringify(result));
+    
+        // Check if this data is available locally
+        const cachedData = localStorage.getItem(`${this.cacheKey}-${username}-${repoName}`);
+        if (cachedData) {
+            // Return the Cached Data to reduce API Calls
+            return of(JSON.parse(cachedData));
         }
-
-        return result;
+    
+        // Make the API call
+        return this.http.get<any>(githubApiUrl).pipe(
+            map(data => {
+                // Cache the response data
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem(`${this.cacheKey}-${username}-${repoName}`, JSON.stringify(data));
+                }
+                return data;
+            }),
+            catchError(error => {
+                // Handle errors here
+                console.error('Error fetching repo data', error);
+                return of(null); // Return null on error
+            })
+        );
     }
+    
 
     /**
      * Retrieves colors for various programming languages
