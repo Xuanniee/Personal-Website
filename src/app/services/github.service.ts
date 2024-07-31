@@ -14,6 +14,10 @@ export class GithubService {
     private readonly cacheKey = "githubrepocachekey";
 
     constructor(private http: HttpClient) {}
+
+    private isBrowser(): boolean {
+        return typeof window !== 'undefined';
+    }
     
     /**
     * Retrieves Github Repo Information
@@ -28,18 +32,20 @@ export class GithubService {
         // Modify Base URL
         const githubApiUrl = `${this.githubBaseUrl}/repos/${username}/${repoName}`;
     
-        // Check if this data is available locally
-        const cachedData = localStorage.getItem(`${this.cacheKey}-${username}-${repoName}`);
-        if (cachedData) {
-            // Return the Cached Data to reduce API Calls
-            return of(JSON.parse(cachedData));
+        if (this.isBrowser()) {
+            // Check if this data is available locally
+            const cachedData = localStorage.getItem(`${this.cacheKey}-${username}-${repoName}`);
+            if (cachedData) {
+                // Return the Cached Data to reduce API Calls
+                return of(JSON.parse(cachedData));
+            }
         }
     
         // Make the API call
         return this.http.get<any>(githubApiUrl).pipe(
             map(data => {
                 // Cache the response data
-                if (typeof window !== 'undefined') {
+                if (this.isBrowser()) {
                     localStorage.setItem(`${this.cacheKey}-${username}-${repoName}`, JSON.stringify(data));
                 }
                 return data;
@@ -68,13 +74,15 @@ export class GithubService {
      * @param username a string of the user's Github username
      */
     getPublicRepoList(username: string): Observable<any[]> {
-        // Check if this data is available locally
-        const cachedData = localStorage.getItem(this.cacheKey);
-        if (cachedData) {
-            // Return the Cached Data to reduce API Calls
-            // of is an operator used to create an Observable that emits the values provided to it
-            // parse is required to convert a JSON string back to a JSON object after retrieving from storage
-            return of(JSON.parse(cachedData));
+        if (this.isBrowser()) {
+            // Check if this data is available locally
+            const cachedData = localStorage.getItem(this.cacheKey);
+            if (cachedData) {
+                // Return the Cached Data to reduce API Calls
+                // of is an operator used to create an Observable that emits the values provided to it
+                // parse is required to convert a JSON string back to a JSON object after retrieving from storage
+                return of(JSON.parse(cachedData));
+            }
         }
 
         // Set up the URL & Make the API Call
@@ -86,7 +94,7 @@ export class GithubService {
                 // Filter the repos to accept only those with a description
                 const filteredRepos = repos.filter(repo => repo.description !== null);
                 // Cache the response using the key and converting it to a string for storage
-                if (typeof window !== 'undefined') {
+                if (this.isBrowser()) {
                     // Cache the response data
                     localStorage.setItem(this.cacheKey, JSON.stringify(filteredRepos));
                   }
