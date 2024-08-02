@@ -1,12 +1,24 @@
 <!-- Navbar -->
 
 <nav class="navbar">
-    <!-- Nav Links for Users -->
-    <div class="navbar-logo">
+    <div class="mobile-navbar">
+        <!-- Nav Links for Users -->
+        <div class="navbar-logo">
+            <!-- TODO Insert an image tag here-->
+            <h3>🦭 Xuannie</h3>
+        </div>
+
+        <!-- Mobile View Menu Button -->
+        <div class="navbar-toggle" (click)="toggleNavbar()">☰</div>
+    </div>
+
+    <div class="navbar-logo web-logo">
         <!-- TODO Insert an image tag here-->
         <h3>🦭 Xuannie</h3>
     </div>
-    <ul class="navbar-link-container">
+    
+    <!-- Assigns the show class if navbarOpen is true -->
+    <ul class="navbar-link-container" [ngClass]="{'show': navbarOpen}">
         <!-- routerLinkActive="active" assigns the class active to the link when clicked, allowing us to display CSS properties to make it look clicked -->
         <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a class="" routerLink="/home">💾 Home</a>
@@ -26,7 +38,8 @@
     </ul>
 
     <!-- User Actions -->
-    <div class="navbar-link-container">
+    <!-- Assigns the show class if navbarOpen is true -->
+    <div class="navbar-link-container" [ngClass]="{'show': navbarOpen}">
         <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a routerLink="/contact">📠 Contact Me</a>
         </li>

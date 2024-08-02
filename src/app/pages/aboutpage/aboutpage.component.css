@@ -10,13 +10,14 @@
     display: flex;
     flex-direction: row;
     font-family: Palatino, serif;
+    width: 100%;
 
     justify-content: center;
 }
 
 .about-content {
     font-size: larger;
-    flex: 1;
+    flex: 4;
 }
 
 .about-header {
@@ -57,4 +58,17 @@
     /** To center the icon image horizontally. Block will make the image take the full width then we allocate margins auto on x-axis */
     display: block;
     margin: 5px auto;
+}
+
+/* Responsive styles for smaller viewports */
+@media (max-width: 992px) {
+    .icon-container img {
+        /* Make icons smaller so nicer on smaller screen */
+        width: 10vw;
+        height: auto;
+
+        align-items: center;
+        justify-content: center;
+    }
+
 }
