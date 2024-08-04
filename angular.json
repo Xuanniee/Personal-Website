@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "xuan-yi-webpage": {
+    "personal-webpage": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/xuan-yi-webpage",
+            "outputPath": "dist/personal-webpage",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -45,7 +45,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
+                  "maximumWarning": "5kB",
                   "maximumError": "4kB"
                 }
               ],
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "xuan-yi-webpage:build:production"
+              "buildTarget": "personal-webpage:build:production"
             },
             "development": {
-              "buildTarget": "xuan-yi-webpage:build:development"
+              "buildTarget": "personal-webpage:build:development"
             }
           },
           "defaultConfiguration": "development"
