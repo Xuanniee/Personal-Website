@@ -26,7 +26,7 @@ export class HomepageComponent implements OnInit{
         this.githubService.getGithubColors().subscribe(
             colors => {
                 this.githubColors = colors;
-                this.fetchPinnedRepos(["Bus-Express", "Finance", "Network-Django", "PandaPlay"]); // Update with your repo names
+                this.fetchPinnedRepos(["Bus-Express", "Finance", "PandaPlay"]); // Update with your repo names
             },
             error => console.error('Error fetching colors:', error)
         );

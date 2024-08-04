@@ -7,11 +7,11 @@ import { ProjectpageComponent } from './pages/projectpage/projectpage.component'
 export const routes: Routes = [
     {
         path: "",
-        redirectTo: "/home",
+        redirectTo: "/",
         pathMatch: "full"
     },
     {
-        path: "home",
+        path: "",
         component: HomepageComponent
     },
     {
