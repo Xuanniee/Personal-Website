@@ -3,6 +3,7 @@
     color: #333333;
     background-color: #DDDDDD;
     font-family: Palatino, serif;
+    font-size: large;
 }
 
 .about-div {
@@ -52,6 +53,10 @@
     /** For the text */
     font-weight: 200;
     text-align: center;
+
+    /* Set min width and height so all icons same size */
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .icon-image {
@@ -69,6 +74,10 @@
 
         align-items: center;
         justify-content: center;
+    }
+
+    .about-content, .icon-container span {
+        font-size: smaller;
     }
 
 }

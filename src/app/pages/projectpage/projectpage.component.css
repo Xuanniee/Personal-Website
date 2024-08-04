@@ -55,3 +55,11 @@
     max-width: 80%;
     margin: 0 auto; /* Center the container */
 }
+
+/* Mobile Styling */
+@media (max-width: 992px) {
+    .project-grid {
+        /* Make one column for porjects instead of 2 */
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -29,23 +29,24 @@
         <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a routerLink="/projects">📹 Projects</a>
         </li>
-        <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a href="https://github.com/Xuanniee" target="_blank">📺 Github</a>
-        </li>
-        <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a href="https://www.linkedin.com/in/ng-xuan-yi-301037200/" target="_blank">🎴 LinkedIn</a>
-        </li>
+        
     </ul>
 
     <!-- User Actions -->
     <!-- Assigns the show class if navbarOpen is true -->
     <div class="navbar-link-container" [ngClass]="{'show': navbarOpen}">
         <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a href="https://github.com/Xuanniee" target="_blank">📺 Github</a>
+        </li>
+        <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a href="https://www.linkedin.com/in/ng-xuan-yi-301037200/" target="_blank">🎴 LinkedIn</a>
+        </li>
+        <!-- <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a routerLink="/contact">📠 Contact Me</a>
         </li>
         <li class="navbar-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <button class="no-style-button">🥮 Dark Mode</button>
-        </li>
+        </li> -->
     </div>
 </nav>  
 

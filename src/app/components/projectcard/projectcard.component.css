@@ -9,6 +9,7 @@
     margin: 10px;
     height: 350px; /* Fixed height for all cards */
     max-width: 30em;
+    font-size: medium;
 
     border: 2px solid #3D3D3D;
     border-radius: 2%;
@@ -17,6 +18,13 @@
 
     /* Ensure padding and border are included in the width/height */
     box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+    .project-card {
+        /* Reduce font size */
+        font-size: smaller;
+    }
 }
 
 .project-card .a {
