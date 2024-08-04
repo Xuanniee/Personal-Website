@@ -6,20 +6,20 @@ import { ProjectpageComponent } from './pages/projectpage/projectpage.component'
 // Take note that routes should be from most specific to least as it will match whichever it can match first
 export const routes: Routes = [
     {
-        path: "",
-        redirectTo: "/",
-        pathMatch: "full"
+        path: '',
+        component: HomepageComponent,
+        pathMatch: 'full'
     },
     {
-        path: "",
-        component: HomepageComponent
-    },
-    {
-        path: "about",
+        path: 'about',
         component: AboutpageComponent
     },
     {
-        path: "projects",
+        path: 'projects',
         component: ProjectpageComponent
-    }
+    },
+    // {
+    //     path: '**',
+    //     component: NotFoundComponent // Optional: catch-all route for undefined paths
+    // }
 ];
