@@ -25,9 +25,9 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/assets",
-              "src/assets/runtime-environment.js" 
-            ],
+              "src/assets"
+            ]
+            ,
             "styles": [
               "src/styles.css"
             ],
@@ -94,8 +94,7 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/assets",
-              "src/assets/runtime-environment.js" 
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
