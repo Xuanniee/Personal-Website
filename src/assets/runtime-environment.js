@@ -1,6 +1,6 @@
 (function (window) {
     window.__env = window.__env || {};
-    // Set the environment variable from Render here
-    window.__env.GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;; // Will be replaced by Render's environment variable
+    // Render injects environment variables at build time
+    window.__env.GITHUB_ACCESS_TOKEN = 'REPLACE_WITH_GITHUB_ACCESS_TOKEN';
     console.log('GITHUB_ACCESS_TOKEN:', window.__env.GITHUB_ACCESS_TOKEN);
 })(this);
