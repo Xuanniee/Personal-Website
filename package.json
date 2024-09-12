@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && npm run replace-env",
-    "replace-env": "replace 'REPLACE_WITH_GITHUB_ACCESS_TOKEN' \"$GITHUB_ACCESS_TOKEN\" dist/personal-webpage/assets/runtime-env.js",
+    "build": "ng build --configuration production --base-href / && npm run replace-env",
+    "replace-env": "sed -i 's/{{GITHUB_ACCESS_TOKEN}}/'\"$GITHUB_ACCESS_TOKEN\"'/g' dist/personal-webpage/browser/assets/runtime-environment.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:personal-webpage": "node dist/personal-webpage/server/server.mjs"
