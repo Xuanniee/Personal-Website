@@ -93,7 +93,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets",
+              "src/assets/runtime-environment.js" 
             ],
             "styles": [
               "src/styles.css"
