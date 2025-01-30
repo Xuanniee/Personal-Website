@@ -29,6 +29,12 @@ export function app(): express.Express {
   server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
+    // Check if the URL is invalid (404) and redirect to the home page
+    if (originalUrl !== '/' && originalUrl !== '/about' && originalUrl !== '/projects') {
+      res.redirect('/');
+      return;
+    }
+
     commonEngine
       .render({
         bootstrap,

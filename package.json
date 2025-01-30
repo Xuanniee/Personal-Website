@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href /",
+    "replace-env": "sed -i 's/REPLACE_WITH_GITHUB_ACCESS_TOKEN/'\"$GITHUB_ACCESS_TOKEN\"'/g' dist/personal-webpage/browser/assets/runtime-environment.js",
+    "build-and-replace": "npm run build && npm run replace-env",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:personal-webpage": "node dist/personal-webpage/server/server.mjs"
@@ -21,6 +23,7 @@
     "@angular/platform-server": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@angular/ssr": "^18.0.7",
+    "@nguniversal/express-engine": "^7.0.2",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -39,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "replace": "^1.2.2",
     "typescript": "~5.4.2"
   }
 }

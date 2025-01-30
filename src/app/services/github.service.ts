@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,13 @@ export class GithubService {
         return null;
     }
 
+    // Create a method to build the HTTP headers with the token
+    private createAuthorizationHeader(): HttpHeaders {
+        return new HttpHeaders({
+        'Authorization': `Bearer ${environment.githubAccessToken}` // Use the token from environment
+        });
+    }
+
     // Function that caches data and the current time
     private cacheData(key: string, data: any): void {
         if (this.isBrowser()) {
@@ -73,7 +81,7 @@ export class GithubService {
         }
     
         // Make the API call
-        return this.http.get<any>(githubApiUrl).pipe(
+        return this.http.get<any>(githubApiUrl, {headers: this.createAuthorizationHeader() }).pipe(
             map(data => {
                 // Cache the response data
                 if (this.isBrowser()) {
@@ -128,7 +136,7 @@ export class GithubService {
         const githubApiUrl = `${this.githubBaseUrl}/users/${username}/repos`;
         
         // Make the API call and filter the results
-        return this.http.get<any[]>(githubApiUrl).pipe(
+        return this.http.get<any[]>(githubApiUrl, {headers: this.createAuthorizationHeader() }).pipe(
             map(repos => {
                 // Filter the repos to accept only those with a description
                 const filteredRepos = repos.filter(repo => repo.description !== null);
