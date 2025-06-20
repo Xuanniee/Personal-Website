@@ -1,0 +1,186 @@
+* {
+    /** Ensures that the box includes the padding and border as part of the element*/
+    box-sizing: border-box;
+}
+
+.navbar {
+    /** Space the links efficiently */
+    justify-content: space-between;
+
+    /* Take all avail hori space */
+    width: 100%;
+
+    /** Ensure the 3 Sections of Logo, Links, and Actions are horizontal */
+    display: flex;
+    flex-direction: row;
+
+    /** Set the Padding Color to Black, while Text is White */
+    background-color: #3D3D3D;
+    color: #DDDDDD;
+
+    /** Ensure the navbar stays while scrolling */
+    position: sticky;
+    /** Tells the navbar where to stick from */
+    top: 0;
+    /* Ensure navbar is always the first element on top */
+    z-index: 9999999;
+}
+
+.navbar-logo {
+    /** Spaced out a little, so it doesnt touch the end */
+    margin-left: 10px;
+}
+
+.navbar-link-container {
+    /** Ensure the Navlinks are stacked horizontally */
+    display: flex;
+    flex-direction: row;
+
+    /** Make the Items align vertically */
+    align-items: center;
+}
+
+.navbar-link {
+    /** For each navlink to appear as a button */
+    padding: 5px 10px; /** xy dirn, then left right */
+    margin: 0px 10px;
+    border: 2px solid #1A1919;
+    border-radius: 10%; /** Set border to be rounded */
+
+    list-style-type: none;
+    background-color: #5F5F5F;
+}
+
+.navbar-link a {
+    /** Targets the <a> tag within the li tag of navbar-link */
+    text-decoration: none; /** Remove the underlining of links */
+    color: inherit; /** Text color follow parents */
+}
+
+.navbar-link:hover {
+    /** Button to become darker while hovering. Must change color according to what the navbar-link color is */
+    background-color: #1F1F1F;
+}
+
+.navbar-link.active {
+    /** Assigned to button that is currently clicked, i.e. which button we are on */
+    background-color: #1F1F1F; /** Changed to hover color permanently */
+}
+
+/* Remove default button styling */
+.no-style-button {
+    background: #5F5F5F;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}
+
+.no-style-button:hover {
+    /** Button to become darker while hovering. Must change color according to what the navbar-link color is */
+    background-color: #1F1F1F;
+}
+
+.no-style-button.active {
+    /** Assigned to button that is currently clicked, i.e. which button we are on */
+    background-color: #1F1F1F; /** Changed to hover color permanently */
+}
+
+.navbar-toggle {
+    /* Hidden by default, so that it will appear when the viewport becomes small */
+    display: none;
+}
+
+.mobile-navbar {
+    /* Hide if in web view */
+    display: none;    
+}
+
+
+/* Query size of viewport so we can transition to mobile */
+@media (max-width: 992px) {
+    .navbar {
+        /* Makes the menu a vertical menu */
+        flex-direction: column;
+        /* Aligns the items to the start of the flex container's cross-axis */
+        align-items: flex-start;
+    }
+
+    .mobile-navbar {
+        /* Make the logo and toggle button in the same row when in mobile view */
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        
+        /* Add hori padding so not touching */
+        padding: 0 10px;
+    }
+
+    /* Div that contains all the navlinks */
+    .navbar-link-container {
+        /* Stack the navlinks vertically */
+        flex-direction: column;
+        /* Ensure the links takes up all the space horizontally for aesthetics */
+        width: 100%;
+
+        /* Hides the links until user clicks the Menu Toggle Button in Mobile View */
+        display: none;
+
+        /* Remove default padding */
+        padding: 0; 
+    }
+
+    .navbar-link {
+        /* Ensure each link takes up all horizontal space */
+        width: 100%;
+
+        /* Align text to center or start, this is preference */
+        text-align: center;
+
+        /* Increase vertical padding so users can click on it more easily on mobile */
+        padding: 10px 0; 
+
+        /* Remove border on mobile for a cleaner look */
+        border: none; 
+
+        /* Remove Border Radius so it looks like nicer for vertical menu */
+        border-radius: 0%;
+    }
+
+    /* Show the nav vertical menu when show class is added */
+    .navbar-link-container.show {
+        /* Makes links visible */
+        display: flex;
+    }
+
+    /* Prevent 2 logos from appearing */
+    .web-logo {
+        display: none;
+    }
+    
+
+    .navbar-toggle {
+        /* Makes the button visible in mobile */
+        display: block;
+
+        /* Change cursor to pointer on mobile to indicate clickable */
+        cursor: pointer;
+
+        /* Increase size for better readability */
+        font-size: 24px;
+
+        color: #DDDDDD;
+
+        /* Add a border to make it look nicer
+        border: 2px solid #1A1919;
+        border-radius: 30%; */
+
+        /* Adding padding to make it look like a button */
+        padding: 3px 10px;
+        margin: 10px 0; /* Add vertical margin */
+    }
+}

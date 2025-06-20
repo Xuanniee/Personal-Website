@@ -1,0 +1,145 @@
+<div class="homepage">
+    <app-navbar></app-navbar>
+
+    <div class="home-content-div">
+        <div class="spacer"></div>
+        
+        <div class="middle-div">
+            <div class="self-introduction">
+                <div class="self-introduction-content">
+                    <h1>Hello, I'm Xuan Yi</h1>
+                    <p>I'm an aspiring software engineer who is currently studying Computer Science at Nanyang Technological University.</p>
+        
+                    <p>On my site, you can check out my personal projects, my internship experiences, or learn more about me!</p>
+                </div>
+
+                <img src="/assets/pan-pan-profile.png" alt="Picture of Pan Pan" />
+            </div>
+
+            <div class="middle-section">
+                <h3>Professional Experiences</h3>
+                <div class="experience-div">
+                    <h4>Software Engineer Intern</h4>
+                    <div class="experience-header-div">
+                        <span class="experience-company">DSO National Laboratories</span>
+                        <span class="experience-date">Jan 2025 - Present</span>
+                    </div>
+                    <div class="experience-body-div">
+                        <ul>
+                            <li>
+                                Maintained and enhanced Warden, an internal web application for hardening computer operating systems, including implementing offline support for icons and fonts to improve functionality.
+                            </li>
+                            <li>
+                                Implemented a database feature to preload base CIS benchmark policies for multiple operating systems, streamlining user workflows by enabling duplication and customization without manual imports.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-div">
+                    <h4>Software Engineer Intern</h4>
+                    <div class="experience-header-div">
+                        <span class="experience-company">Continental Automotives Singapore Pte Ltd</span>
+                        <span class="experience-date">July 2024 - Nov 2024</span>
+                    </div>
+                    <div class="experience-body-div">
+                        <ul>
+                            <li>
+                                Created a Bash script to automatically deploy Docker containers for a Django web application focused on fuzzing techniques, reducing confusion and saving 5 hours each month when computers are booted up.
+                            </li>
+                            <li>
+                                Responsible for developing and maintaining a custom Power BI visual for the Continental German team, utilising the Visual API, TypeScript, and JavaScript.
+                            </li>
+                            <li>
+                                Developing a wrapper for the Fuzzing Algorithm so that users can apply it to the CI/CD pipeline in Continental.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-div">
+                    <h4>Data Analyst Intern</h4>
+                    <div class="experience-header-div">
+                        <span class="experience-company">EV-Electric (EVe) Pte Ltd</span>
+                        <span class="experience-date">May 2023 - July 2023</span>
+                    </div>
+                    <div class="experience-body-div">
+                        <ul>
+                            <li>
+                                Developed a web scraping script to extract EV Charger locations and associated EV Operators in Singapore for geo-spatial analysis, facilitating strategic installation of additional or fast EV chargers.
+                            </li>
+                            <li>
+                                Automated data report generation by centralising datasets, resulting in a monthly time savings of 10 manpower hours previously spent on compilation.
+                            </li>
+                            <li>
+                                Analysed and visualised EV owners' charging behaviour, identifying over-subscribed carparks and recommending areas for additional charger deployment.
+                            </li>
+                            <li>
+                                Created scripts to scrape and monitor daily petrol and EV charging prices in Singapore, aiding in market price analysis.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle-section">
+                <div class="middle-section-menu">
+                    <h3>Notable Projects</h3>
+                    <a class="homepage-button" routerLink="/projects">All Projects</a>
+                </div>
+                
+                <div class="homepage-projects">
+                    <app-projectcard
+                        *ngFor="let repo of repoData"
+                        [repoData]=repo
+                        [githubColors]=githubColors
+                    >
+                    </app-projectcard>
+                </div>
+            </div>
+
+            <div class="middle-section">
+                <h3>Statistics</h3>
+
+                
+                <div class="plugin-container">
+                    <div class="plugin-logo">
+                        <span>Leetcode</span>
+                        <img src="assets/leetcode-logo.png" alt="Leetcode Logo">
+                    </div>
+                    
+
+                    <a href="https://leetcode.com/Xuanniee" target="_blank" rel="noopener noreferrer">
+                        <img src="https://leetcard.jacoblin.cool/Xuanniee" alt="Leetcode Stats">
+                    </a>
+                </div>
+    
+                <div class="plugin-container">
+                    <div class="plugin-logo">
+                        <span>Github</span>
+                        <img src="assets/github-logo.png" alt="Github Logo">
+                    </div>
+                    
+
+                    <a href="https://github.com/Xuanniee/github-readme-stats">
+                        <img height=200 width=auto align="center" src="https://github-readme-stats.vercel.app/api?username=Xuanniee" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="middle-section">
+                <h3>Let's Chat</h3>
+
+                <div>
+                    <p>You can reach out to me via these platforms or via <a href="github.com/Xuanniee">Github</a>/<a href="linkedin.com/in/ng-xuan-yi-301037200/">LinkedIn</a>:</p>
+                    <ul>
+                        <li><span class="contact-platform">Email:</span> xuanyi1603&#64;gmail.com</li>
+                        <li><span class="contact-platform">Discord:</span> michelinman_xuanyi</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="spacer"></div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+.aboutPage {
+    /** Setting the bg and text colors, along with font types */
+    color: #333333;
+    background-color: #DDDDDD;
+    font-family: Palatino, serif;
+    font-size: large;
+}
+
+.about-div {
+    /** Have the 2 Spacers and Content Div stack horizontally */
+    display: flex;
+    flex-direction: row;
+    font-family: Palatino, serif;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.about-content {
+    font-size: larger;
+    flex: 4;
+}
+
+.about-header {
+    /** Setting up a border line after the headers */
+    border-bottom: 1px solid #1A1919;
+    margin-bottom: 5px;
+
+    font-weight: 300;
+}
+
+.spacer-div {
+    /** Div Containers that take up space so that my content will be centered */
+    flex: 1;
+}
+
+/** For Icons **/
+.icons-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon-container {
+    flex: 1 1 20%; /* Allows each icon container to take up 20% of the row's width */
+    max-width: 20%; /* Ensures no more than 5 items per row */
+    margin-bottom: 20px;
+
+    /** For img and span tags to be stacked vertically */
+    display: flex;
+    flex-direction: column;
+
+    /** For the text */
+    font-weight: 200;
+    text-align: center;
+
+    /* Set min width and height so all icons same size */
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.icon-image {
+    /** To center the icon image horizontally. Block will make the image take the full width then we allocate margins auto on x-axis */
+    display: block;
+    margin: 5px auto;
+    /* Fill up the container with the image */
+    object-fit: contain;
+
+    width: 100%;
+    height: auto;
+}
+
+.icon-container img {
+    max-width: 60px; /* Set a maximum width for icons */
+    max-height: 60px; /* Set a maximum height for icons */
+    
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive styles for smaller viewports */
+@media (max-width: 992px) {
+    .icon-container {
+        flex: 1 1 33.33%; /* Adjust flex for smaller screens */
+        max-width: 33.33%;
+    }
+
+    .icon-container img {
+        /* Make icons smaller so nicer on smaller screen */
+        width: 10vw;
+        height: auto;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-content, .icon-container span {
+        font-size: smaller;
+    }
+
+}

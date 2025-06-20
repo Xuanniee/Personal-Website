@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model that contains all the reflections about things I learn
+model Article {
+  id                            Int                             @id @default(autoincrement())
+  title                         String
+  uploaded_at                   DateTime                        @default(now())
+  last_edited                   DateTime                        @default(now())
+  // For storing markdown, HTML or text
+  content                       String
+  // Unique slugs for readers to identify article urls easily
+  slug                          String                          @unique     
+  topics                        ArticleTopic[]
+}
+
+// Article and Topic has a (n to n) relation. 
+// Each article can have multiple topics. 
+// Each topic can belong to multiple articles.
+model Topic {
+  id                            Int                             @id @default(autoincrement())
+  // Add a unique constraint
+  name                          String                          @unique
+  articles                      ArticleTopic[]
+}
+
+// Every ArticleTopic will have 1 article and 1 topic if created
+model ArticleTopic {
+  article                       Article                         @relation(fields: [article_id], references: [id])
+  article_id                    Int
+
+  topic                         Topic                           @relation(fields: [topic_id], references: [id])
+  topic_id                      Int
+  
+  @@id([article_id, topic_id])
+}
+
+// Model to track all the details of internships I have taken
+// Has a (1-n) relation as each intern can have multiple achievements
+model Internship {
+  id                            Int                             @id @default(autoincrement())
+  intern_title                  String
+  company                       String
+  start_date                    DateTime
+  end_date                      DateTime
+  achievements                  InternAchievement[]
+}
+
+model InternAchievement {
+  id                            Int                             @id @default(autoincrement())
+  internship                    Internship                      @relation(fields: [internship_id], references: [id])
+  internship_id                 Int
+  details                       String[]
+}
+
+// Model to track the bugs I encountered throughout my internships
