@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build --configuration production --base-href /",
     "replace-env": "sed -i 's/REPLACE_WITH_GITHUB_ACCESS_TOKEN/'\"$GITHUB_ACCESS_TOKEN\"'/g' dist/personal-webpage/browser/assets/runtime-environment.js",
-    "build-and-replace": "npm run build && npm run replace-env && npm run postbuild",
-    "postbuild": "mv dist/personal-webpage/browser/index.csr.html dist/personal-webpage/browser/index.html",
+    "build-and-replace": "npm run build && npm run replace-env",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:personal-webpage": "node dist/personal-webpage/server/server.mjs"
