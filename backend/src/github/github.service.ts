@@ -4,7 +4,6 @@ import { ConfigService } from '@nestjs/config';
 import { Cron } from '@nestjs/schedule';
 import { firstValueFrom } from 'rxjs';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { UpdateRepositoryDto } from './dtos/repository.dto';
 import { Prisma, Repository } from '@prisma/client';
 
 @Injectable()
